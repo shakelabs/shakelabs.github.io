@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<p>
+                        shakelabsでは、鮭（shake）のように困難を乗り越えて上流を目指す精神で、最新のWeb技術を駆使して、
+                        ユーザーエクスペリエンスを重視したWebアプリケーションの開発に取り組んでいます。
+                        単なる技術の追求ではなく、ビジネス価値を生み出すソリューションの創造を目指しています。
+                    </p>
+                    <p>
+                        私たちの強みは、フロントエンドからバックエンド、インフラまでを包括的にカバーできる技術力と、
+                        ユーザー中心設計の思考プロセスです。鮭が本能的に最適なルートを<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -14,20 +21,21 @@
         }
 
         :root {
-            --primary-blue: #1e40af;
-            --secondary-blue: #3b82f6;
-            --light-blue: #60a5fa;
-            --dark-blue: #1e3a8a;
-            --accent-blue: #06b6d4;
+            --primary-salmon: #fa8072;
+            --secondary-salmon: #ff6347;
+            --light-salmon: #ffa07a;
+            --dark-salmon: #e9967a;
+            --accent-salmon: #ff7f50;
+            --salmon-pink: #ffb6c1;
             --text-dark: #1f2937;
             --text-medium: #4b5563;
             --text-light: #6b7280;
-            --bg-light: #f8fafc;
+            --bg-light: #fff8f6;
             --bg-card: #ffffff;
-            --border-light: #e5e7eb;
+            --border-light: #fde8e8;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --shadow-md: 0 4px 15px rgba(250,128,114,0.2);
+            --shadow-lg: 0 10px 25px rgba(250,128,114,0.3);
             --transition: all 0.3s ease;
         }
 
@@ -67,8 +75,16 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary-salmon);
         }
 
         .nav-links {
@@ -92,8 +108,8 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-blue);
-            background: rgba(30, 64, 175, 0.1);
+            color: var(--primary-salmon);
+            background: rgba(250, 128, 114, 0.1);
         }
 
         /* Dropdown Menu */
@@ -161,7 +177,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 50%, var(--light-blue) 100%);
+            background: linear-gradient(135deg, var(--primary-salmon) 0%, var(--secondary-salmon) 50%, var(--light-salmon) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -173,7 +189,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/><path d="M100,400 Q200,350 300,400 T500,400 T700,400 T900,400" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/></svg>');
             background-size: cover;
         }
 
@@ -222,7 +238,7 @@
             gap: 0.5rem;
             padding: 16px 32px;
             background: white;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
@@ -277,6 +293,18 @@
             color: white;
         }
 
+        .salmon-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: swim 3s ease-in-out infinite;
+        }
+
+        @keyframes swim {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(10px) rotate(5deg); }
+        }
+
         .lab-visual h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
@@ -306,7 +334,7 @@
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             margin-bottom: 1rem;
         }
 
@@ -330,7 +358,7 @@
         }
 
         .about-visual {
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            background: linear-gradient(135deg, var(--primary-salmon), var(--secondary-salmon));
             border-radius: 20px;
             padding: 3rem;
             text-align: center;
@@ -349,7 +377,7 @@
 
         .about-text h3 {
             font-size: 2rem;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             margin-bottom: 1.5rem;
         }
 
@@ -373,7 +401,7 @@
         }
 
         .feature-list li i {
-            color: var(--secondary-blue);
+            color: var(--secondary-salmon);
             width: 20px;
         }
 
@@ -402,9 +430,9 @@
 
         .tab-btn.active,
         .tab-btn:hover {
-            background: var(--primary-blue);
+            background: var(--primary-salmon);
             color: white;
-            border-color: var(--primary-blue);
+            border-color: var(--primary-salmon);
         }
 
         .tab-content {
@@ -438,7 +466,7 @@
 
         .project-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            background: linear-gradient(135deg, var(--primary-salmon), var(--light-salmon));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -463,7 +491,7 @@
         }
 
         .project-status {
-            background: var(--secondary-blue);
+            background: var(--secondary-salmon);
             color: white;
             padding: 4px 8px;
             border-radius: 4px;
@@ -472,7 +500,7 @@
 
         .project-content h3 {
             font-size: 1.4rem;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             margin-bottom: 1rem;
             font-weight: 600;
         }
@@ -517,12 +545,12 @@
         }
 
         .project-link.primary {
-            background: var(--primary-blue);
+            background: var(--primary-salmon);
             color: white;
         }
 
         .project-link.primary:hover {
-            background: var(--dark-blue);
+            background: var(--dark-salmon);
         }
 
         .project-link.secondary {
@@ -552,7 +580,7 @@
         }
 
         .skill-category h4 {
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             margin-bottom: 1.5rem;
             font-weight: 600;
             font-size: 1.2rem;
@@ -578,7 +606,7 @@
         }
 
         .skill-tag:hover {
-            background: var(--primary-blue);
+            background: var(--primary-salmon);
             color: white;
             transform: scale(1.05);
         }
@@ -605,7 +633,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-blue), var(--light-blue));
+            background: linear-gradient(135deg, var(--primary-salmon), var(--light-salmon));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -616,12 +644,12 @@
 
         .profile-card h3 {
             font-size: 1.8rem;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             margin-bottom: 0.5rem;
         }
 
         .profile-card .role {
-            color: var(--secondary-blue);
+            color: var(--secondary-salmon);
             font-weight: 600;
             margin-bottom: 1.5rem;
         }
@@ -640,7 +668,7 @@
         .stat-number {
             font-size: 2rem;
             font-weight: 700;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
         }
 
         .stat-label {
@@ -657,7 +685,7 @@
 
         .profile-details h3 {
             font-size: 2rem;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             margin-bottom: 1.5rem;
         }
 
@@ -669,7 +697,7 @@
 
         /* Contact Section */
         .contact {
-            background: #f0f4ff;
+            background: #fff5f3;
             padding: 8rem 0;
         }
 
@@ -682,7 +710,7 @@
 
         .contact h2 {
             font-size: 3rem;
-            color: var(--primary-blue);
+            color: var(--primary-salmon);
             font-weight: 700;
             margin-bottom: 3rem;
         }
@@ -737,8 +765,8 @@
 
         .simple-form-group input:focus,
         .simple-form-group textarea:focus {
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+            border-color: var(--primary-salmon);
+            box-shadow: 0 0 0 3px rgba(250, 128, 114, 0.1);
         }
 
         .simple-form-group textarea {
@@ -747,7 +775,7 @@
         }
 
         .simple-submit-btn {
-            background: var(--primary-blue);
+            background: var(--primary-salmon);
             color: white;
             border: none;
             padding: 16px 32px;
@@ -762,14 +790,14 @@
         }
 
         .simple-submit-btn:hover {
-            background: var(--dark-blue);
+            background: var(--dark-salmon);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
 
         /* Footer */
         footer {
-            background: var(--primary-blue);
+            background: var(--primary-salmon);
             color: white;
             padding: 4rem 0 2rem;
             text-align: center;
@@ -783,7 +811,7 @@
             transform: translateX(-50%);
             width: 50px;
             height: 50px;
-            background: var(--primary-blue);
+            background: var(--primary-salmon);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -806,7 +834,7 @@
         }
 
         .footer-bottom {
-            background: var(--dark-blue);
+            background: var(--dark-salmon);
             margin: 2rem -100vw 0;
             padding: 1.5rem 0;
             position: relative;
@@ -820,7 +848,7 @@
             transform: translateX(-50%);
             width: 100vw;
             height: 100%;
-            background: var(--dark-blue);
+            background: var(--dark-salmon);
             z-index: -1;
         }
 
@@ -943,7 +971,10 @@
 <body>
     <header>
         <nav>
-            <a href="#home" class="logo">shakelabs</a>
+            <a href="#home" class="logo">
+                <i class="fas fa-fish"></i>
+                shakelabs
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">トップ</a></li>
                 <li><a href="#about">このサイトについて</a></li>
@@ -986,11 +1017,11 @@
             </div>
             <div class="hero-visual">
                 <div class="lab-visual">
-                    <div class="lab-icon">
-                        <i class="fas fa-flask"></i>
+                    <div class="salmon-icon">
+                        🐟
                     </div>
-                    <h3>Innovation Lab</h3>
-                    <p>アイデアを形にする<br>実験室</p>
+                    <h3>Salmon Innovation Lab</h3>
+                    <p>アイデアを鮮やかに<br>泳がせる実験室</p>
                 </div>
             </div>
         </div>
@@ -1006,9 +1037,9 @@
             </div>
             <div class="about-content scroll-reveal">
                 <div class="about-visual">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Creative Lab</h3>
-                    <p>アイデアから実装まで、一貫したクリエイティブプロセス</p>
+                    <i class="fas fa-fish"></i>
+                    <h3>Salmon Creative Lab</h3>
+                    <p>鮭のように上流を目指す、革新的なクリエイティブプロセス</p>
                 </div>
                 <div class="about-text">
                     <h3>技術革新への取り組み</h3>
