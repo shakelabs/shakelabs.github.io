@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio | Web Developer</title>
+    <title>Miyake Keisuke Portfolio | Web Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -28,6 +28,8 @@
             --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
             --transition: all 0.3s ease;
+            --teal-color: #4ecdc4;
+            --teal-hover: #45b7aa;
         }
 
         html {
@@ -58,7 +60,7 @@
             margin: 0 auto;
             padding: 0 2rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             height: 70px;
         }
@@ -67,51 +69,6 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-medium);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav-links a.external {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .nav-links a.external:after {
-            content: '↗';
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 24px;
-            height: 2px;
-            background: var(--text-medium);
-            margin: 3px 0;
-            transition: 0.3s;
         }
 
         /* Hero Section */
@@ -390,6 +347,7 @@
             border-radius: 6px;
             font-size: 0.85rem;
             border: 1px solid var(--border-light);
+            transition: var(--transition);
         }
 
         /* Projects Section */
@@ -521,213 +479,160 @@
 
         /* Contact Section */
         .contact {
-            background: var(--bg-light);
+            background: #f5f5f5;
+            padding: 8rem 0;
         }
 
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
         }
 
-        .contact-info {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p {
-            color: var(--text-medium);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .contact-methods {
-            space: 1.5rem;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        .contact-method-info h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.2rem;
-        }
-
-        .contact-method-info span {
-            color: var(--text-medium);
-            font-size: 0.9rem;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .contact-form h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
+        .contact h2 {
+            font-size: 3rem;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 400;
+            margin-bottom: 3rem;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .contact-description {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .simple-contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .simple-form-group {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .form-row-simple {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .simple-form-group input,
+        .simple-form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
+            padding: 0;
+            border: none;
+            border-bottom: 2px solid #ddd;
+            background: transparent;
             font-size: 1rem;
             transition: var(--transition);
-            background: white;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+            padding-bottom: 10px;
             outline: none;
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
         }
 
-        .form-group textarea {
+        .simple-form-group input::placeholder,
+        .simple-form-group textarea::placeholder {
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .simple-form-group input:focus,
+        .simple-form-group textarea:focus {
+            border-bottom-color: var(--teal-color);
+        }
+
+        .simple-form-group textarea {
             resize: vertical;
             min-height: 120px;
+            margin-top: 1rem;
         }
 
-        .form-submit {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .btn-submit {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 14px 28px;
-            background: var(--accent-color);
+        .simple-submit-btn {
+            background: var(--teal-color);
             color: white;
             border: none;
-            border-radius: 8px;
+            padding: 15px 40px;
             font-size: 1rem;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: var(--transition);
+            margin-top: 2rem;
         }
 
-        .btn-submit:hover {
-            background: var(--accent-hover);
+        .simple-submit-btn:hover {
+            background: var(--teal-hover);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .form-note {
-            color: var(--text-light);
-            font-size: 0.9rem;
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
+            background: var(--teal-color);
             color: white;
-            padding: 3rem 0 2rem;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            position: relative;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+        .footer-top-icon {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--teal-color);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-decoration: none;
+            font-size: 1.5rem;
+            cursor: pointer;
             transition: var(--transition);
         }
 
-        .social-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        .footer-top-icon:hover {
+            transform: translateX(-50%) translateY(-3px);
+        }
+
+        .footer-thanks {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
+            background: var(--teal-hover);
+            margin: 2rem -100vw 0;
+            padding: 1.5rem 0;
+            position: relative;
+        }
+
+        .footer-bottom::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100%;
+            background: var(--teal-hover);
+            z-index: -1;
+        }
+
+        .footer-copyright {
+            position: relative;
+            z-index: 1;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         /* Animations */
@@ -742,12 +647,6 @@
             }
         }
 
-        .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        /* Scroll Reveal */
         .scroll-reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -761,14 +660,6 @@
 
         /* Responsive Design */
         @media (max-width: 968px) {
-            .nav-links {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -784,22 +675,16 @@
                 gap: 2rem;
             }
 
-            .contact-content {
+            .form-row-simple {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 2.5rem;
             }
         }
 
@@ -823,6 +708,14 @@
                 justify-content: center;
                 max-width: 280px;
             }
+
+            .contact h2 {
+                font-size: 2rem;
+            }
+
+            .footer-thanks {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -830,25 +723,13 @@
     <header>
         <nav>
             <div class="logo">Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="https://your-blog.com" class="external" target="_blank">Blog</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Hello, I'm [Your Name]</h1>
+                <h1>Hello, I'm Miyake Keisuke</h1>
                 <div class="subtitle">Full Stack Developer</div>
                 <p>
                     ユーザー体験を重視したWebアプリケーション開発を専門としています。
@@ -868,7 +749,7 @@
                 <div class="code-demo">
                     <div class="code-line"><span class="comment">// Welcome to my portfolio</span></div>
                     <div class="code-line"><span class="keyword">const</span> developer = {</div>
-                    <div class="code-line">&nbsp;&nbsp;name: <span class="string">'Your Name'</span>,</div>
+                    <div class="code-line">&nbsp;&nbsp;name: <span class="string">'Miyake Keisuke'</span>,</div>
                     <div class="code-line">&nbsp;&nbsp;skills: [<span class="string">'React'</span>, <span class="string">'Node.js'</span>],</div>
                     <div class="code-line">&nbsp;&nbsp;passion: <span class="string">'Creating amazing UX'</span></div>
                     <div class="code-line">};</div>
@@ -892,7 +773,7 @@
                     <div class="profile-image">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h3>[Your Name]</h3>
+                    <h3>Miyake Keisuke</h3>
                     <div class="role">Full Stack Developer</div>
                     <p>東京を拠点に活動するWebデベロッパー。ユーザー中心設計を重視しています。</p>
                     <div class="profile-stats">
@@ -1079,168 +960,38 @@
     </section>
 
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">Contact</h2>
-                <p class="section-subtitle">
-                    プロジェクトのご相談やお仕事の依頼など、お気軽にお問い合わせください
-                </p>
-            </div>
-            <div class="contact-content scroll-reveal">
-                <div class="contact-info">
-                    <h3>お気軽にご連絡ください</h3>
-                    <p>
-                        新しいプロジェクトやコラボレーションの機会について、
-                        いつでもお話しできることを楽しみにしています。
-                        以下の方法でお気軽にお声がけください。
-                    </p>
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-method-info">
-                                <h4>Email</h4>
-                                <span>your.email@example.com</span>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-method-info">
-                                <h4>電話</h4>
-                                <span>090-0000-0000</span>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-method-info">
-                                <h4>所在地</h4>
-                                <span>東京, 日本</span>
-                            </div>
-                        </div>
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div class="contact-method-info">
-                                <h4>対応時間</h4>
-                                <span>平日 9:00 - 18:00</span>
-                            </div>
-                        </div>
+        <div class="contact-container">
+            <h2>Contact me</h2>
+            <p class="contact-description">
+                最後までご覧いただきありがとうございました。このサイトを通じて、私のことを少しでも知っていただけたのなら嬉しいです。もしこのサイトや私について何かコメントがありましたら、下記フォームをご利用ください。
+            </p>
+            <form class="simple-contact-form" id="simpleContactForm">
+                <div class="form-row-simple">
+                    <div class="simple-form-group">
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="simple-form-group">
+                        <input type="email" name="email" placeholder="Email" required>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <h3>お問い合わせフォーム</h3>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">お名前（姓）*</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">お名前（名）*</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">メールアドレス *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">会社名・組織名</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="projectType">プロジェクト種別</label>
-                            <select id="projectType" name="projectType">
-                                <option value="">選択してください</option>
-                                <option value="web-development">Webサイト・アプリ開発</option>
-                                <option value="consultation">技術コンサルティング</option>
-                                <option value="maintenance">保守・運用</option>
-                                <option value="other">その他</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="budget">予算感</label>
-                            <select id="budget" name="budget">
-                                <option value="">選択してください</option>
-                                <option value="under-50">50万円未満</option>
-                                <option value="50-100">50万円 - 100万円</option>
-                                <option value="100-300">100万円 - 300万円</option>
-                                <option value="over-300">300万円以上</option>
-                                <option value="discuss">相談して決めたい</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="timeline">希望納期</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">選択してください</option>
-                                <option value="urgent">急ぎ（1ヶ月以内）</option>
-                                <option value="normal">通常（2-3ヶ月）</option>
-                                <option value="flexible">柔軟に対応可能</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">プロジェクト詳細・ご要望 *</label>
-                            <textarea id="message" name="message" placeholder="プロジェクトの概要、技術要件、その他ご要望などをお書きください" required></textarea>
-                        </div>
-                        <div class="form-submit">
-                            <button type="submit" class="btn-submit">
-                                <i class="fas fa-paper-plane"></i> 送信する
-                            </button>
-                            <span class="form-note">通常24時間以内にご返信いたします</span>
-                        </div>
-                    </form>
+                <div class="simple-form-group">
+                    <textarea name="comment" placeholder="Comment" required></textarea>
                 </div>
-            </div>
+                <button type="submit" class="simple-submit-btn">SEND</button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Portfolio</h4>
-                    <p>
-                        情熱的な開発者として、革新的なWebソリューションを
-                        通じて価値を創造し続けます。
-                    </p>
-                    <div class="social-links">
-                        <a href="https://github.com/yourusername" class="social-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/yourprofile" class="social-link" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://twitter.com/yourusername" class="social-link" target="_blank">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="mailto:your.email@example.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <p><a href="#about">About</a></p>
-                    <p><a href="#projects">Projects</a></p>
-                    <p><a href="#contact">Contact</a></p>
-                    <p><a href="https://your-blog.com" target="_blank">Blog</a></p>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <p>Web Development</p>
-                    <p>Frontend Development</p>
-                    <p>Backend Development</p>
-                    <p>Technical Consulting</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        <div class="footer-top-icon">
+            <i class="fas fa-chevron-up"></i>
+        </div>
+        <div class="footer-thanks">
+            Thank you for coming!
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                © 2025 Miyake Keisuke
             </div>
         </div>
     </footer>
@@ -1305,55 +1056,64 @@
             observer.observe(el);
         });
 
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-
-        // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Simple contact form handling
+        document.getElementById('simpleContactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
             const formData = new FormData(this);
-            const formObject = {};
-            
-            for (let [key, value] of formData.entries()) {
-                formObject[key] = value;
-            }
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const comment = formData.get('comment');
             
             // Simple validation
-            if (!formObject.firstName || !formObject.lastName || !formObject.email || !formObject.message) {
-                alert('必須項目を入力してください。');
+            if (!name || !email || !comment) {
+                alert('すべての項目を入力してください。');
                 return;
             }
             
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(formObject.email)) {
+            if (!emailRegex.test(email)) {
                 alert('有効なメールアドレスを入力してください。');
                 return;
             }
             
-            // Here you would normally send the data to your server
-            // For demo purposes, we'll just show a success message
-            const submitBtn = this.querySelector('.btn-submit');
-            const originalText = submitBtn.innerHTML;
+            const submitBtn = this.querySelector('.simple-submit-btn');
+            const originalText = submitBtn.textContent;
             
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 送信中...';
+            submitBtn.textContent = '送信中...';
             submitBtn.disabled = true;
             
-            // Simulate API call
+            // Create EmailJS payload (you would replace this with actual EmailJS configuration)
+            const emailData = {
+                to_email: 'miyake.tenshoku@gmail.com',
+                from_name: name,
+                from_email: email,
+                message: comment
+            };
+            
+            // Simulate email sending (replace with actual EmailJS call)
             setTimeout(() => {
-                alert('お問い合わせありがとうございます！24時間以内にご返信いたします。');
+                alert('お問い合わせありがとうございます！確認次第ご返信いたします。');
                 this.reset();
-                submitBtn.innerHTML = originalText;
+                submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }, 2000);
+            
+            // Actual EmailJS implementation would look like:
+            // emailjs.send('your_service_id', 'your_template_id', emailData)
+            //     .then(() => {
+            //         alert('お問い合わせありがとうございます！');
+            //         this.reset();
+            //     })
+            //     .catch(() => {
+            //         alert('送信に失敗しました。もう一度お試しください。');
+            //     })
+            //     .finally(() => {
+            //         submitBtn.textContent = originalText;
+            //         submitBtn.disabled = false;
+            //     });
         });
 
         // Add loading animation to project cards
@@ -1416,54 +1176,13 @@
             }
         });
 
-        // Form field focus effects
-        document.querySelectorAll('.form-group input, .form-group textarea, .form-group select').forEach(field => {
-            field.addEventListener('focus', () => {
-                field.parentElement.classList.add('focused');
-            });
-            
-            field.addEventListener('blur', () => {
-                if (!field.value) {
-                    field.parentElement.classList.remove('focused');
-                }
+        // Footer scroll to top functionality
+        document.querySelector('.footer-top-icon').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
-
-    <style>
-        /* Additional mobile responsive styles */
-        @media (max-width: 768px) {
-            .nav-links.active {
-                display: flex;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow-md);
-                backdrop-filter: blur(20px);
-            }
-            
-            .menu-toggle.active span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-            
-            .menu-toggle.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .menu-toggle.active span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-            
-            .form-group.focused label {
-                color: var(--accent-color);
-                transform: translateY(-5px);
-                font-size: 0.9rem;
-            }
-        }
-    </style>
 </body>
 </html>
