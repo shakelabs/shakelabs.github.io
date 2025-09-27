@@ -5,85 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shakelabs | Web Development & Creative Solutions</title>
     <!-- サーモン/鮭専用のSVGファビコン -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cellipse cx='50' cy='50' rx='30' ry='8' fill='%23ff6b47'/%3E%3Cellipse cx='25' cy='50' rx='12' ry='8' fill='%23ff5722'/%3E%3Ccircle cx='20' cy='47' r='1.5' fill='%23000'/%3E%3Cpath d='M12 52 Q8 50 12 48' stroke='%23333' stroke-width='0.5' fill='none'/%3E%3Cpath d='M80 50 Q88 42 85 50 Q88 58 80 50' fill='%23e64a19'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3C!-- サーモンの本体 --%3E%3Cellipse cx='50' cy='50' rx='30' ry='8' fill='%23ff6b47'/%3E%3C!-- サーモンの頭部 --%3E%3Cellipse cx='25' cy='50' rx='12' ry='8' fill='%23ff5722'/%3E%3C!-- 目 --%3E%3Ccircle cx='20' cy='47' r='1.5' fill='%23000'/%3E%3C!-- 口 --%3E%3Cpath d='M12 52 Q8 50 12 48' stroke='%23333' stroke-width='0.5' fill='none'/%3E%3C!-- 尾ひれ --%3E%3Cpath d='M80 50 Q88 42 85 50 Q88 58 80 50' fill='%23e64a19'/%3E%3C!-- 背びれ --%3E%3Cpath d='M35 42 Q45 35 55 42 Q65 35 75 42' stroke='%23d84315' stroke-width='1.5' fill='none'/%3E%3C!-- 腹びれ --%3E%3Cpath d='M40 58 Q50 62 60 58' stroke='%23d84315' stroke-width='1.5' fill='none'/%3E%3C!-- サーモンの模様 --%3E%3Cellipse cx='35' cy='48' rx='2' ry='1' fill='%23d84315' opacity='0.6'/%3E%3Cellipse cx='45' cy='52' rx='1.5' ry='0.8' fill='%23d84315' opacity='0.6'/%3E%3Cellipse cx='55' cy='48' rx='2' ry='1' fill='%23d84315' opacity='0.6'/%3E%3Cellipse cx='65' cy='51' rx='1.5' ry='0.8' fill='%23d84315' opacity='0.6'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- スプラッシュスクリーン：鮭の遡上をイメージしたトップページ -->
-    <section id="hero-splash" class="hero-splash">
-        <div class="ocean-container">
-            <!-- 川の流れ -->
-            <div class="river-flow"></div>
-            
-            <!-- 岩場 -->
-            <div class="rocks">
-                <div class="rock rock-1"></div>
-                <div class="rock rock-2"></div>
-                <div class="rock rock-3"></div>
-                <div class="rock rock-4"></div>
-            </div>
-            
-            <!-- 水流のパーティクル -->
-            <div class="water-particles">
-                <div class="water-particle particle-1"></div>
-                <div class="water-particle particle-2"></div>
-                <div class="water-particle particle-3"></div>
-                <div class="water-particle particle-4"></div>
-                <div class="water-particle particle-5"></div>
-            </div>
-            
-            <!-- 泳ぐ鮭たち（遡上） -->
-            <div class="salmon-group">
-                <div class="salmon salmon-1">🐟</div>
-                <div class="salmon salmon-2">🐟</div>
-                <div class="salmon salmon-3">🐟</div>
-                <div class="salmon salmon-4">🐟</div>
-                <div class="salmon salmon-5">🐟</div>
-            </div>
-            
-            <!-- 気泡エフェクト -->
-            <div class="bubbles">
-                <div class="bubble bubble-1"></div>
-                <div class="bubble bubble-2"></div>
-                <div class="bubble bubble-3"></div>
-                <div class="bubble bubble-4"></div>
-                <div class="bubble bubble-5"></div>
-                <div class="bubble bubble-6"></div>
-            </div>
-            
-            <!-- メインコンテンツ -->
-            <div class="splash-content">
-                <div class="logo-container">
-                    <div class="main-logo">
-                        <i class="fas fa-fish"></i>
-                        <h1>shakelabs</h1>
-                    </div>
-                    <div class="tagline">Creative Development Laboratory</div>
-                    <div class="subtitle">鮭のように困難を乗り越えて上流を目指す、革新的なWebソリューション</div>
-                </div>
-                
-                <div class="action-buttons">
-                    <button class="enter-btn" onclick="enterSite()">
-                        <i class="fas fa-arrow-right"></i>
-                        サイトに入る
-                    </button>
-                </div>
-            </div>
-            
-            <!-- スクロールインジケーター -->
-            <div class="scroll-indicator">
-                <div class="scroll-text">Scroll to explore</div>
-                <div class="scroll-arrow">
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- メインヘッダー（スプラッシュ後に表示） -->
-    <header id="main-header" style="display: none;">
+    <header>
         <nav>
             <a href="#home" class="logo">
                 <i class="fas fa-fish"></i>
@@ -111,100 +39,343 @@
         </nav>
     </header>
 
-    <!-- メインコンテンツ（スプラッシュ後に表示） -->
-    <main id="main-content" style="display: none;">
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Welcome to shakelabs</h1>
-                    <div class="subtitle">革新的なWeb開発と創造的なソリューション</div>
-                    <p>
-                        テクノロジーと創造性を融合させ、ユーザーにとって価値のあるデジタル体験を創造します。
-                        最新の技術トレンドを活用し、ビジネスの成長を加速させるソリューションを提供しています。
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#works" class="btn-primary">
-                            <i class="fas fa-rocket"></i> 制作物を見る
-                        </a>
-                        <a href="#contact" class="btn-secondary">
-                            <i class="fas fa-envelope"></i> お問い合わせ
-                        </a>
-                    </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to shakelabs</h1>
+                <div class="subtitle">革新的なWeb開発と創造的なソリューション</div>
+                <p>
+                    テクノロジーと創造性を融合させ、ユーザーにとって価値のあるデジタル体験を創造します。
+                    最新の技術トレンドを活用し、ビジネスの成長を加速させるソリューションを提供しています。
+                </p>
+                <div class="hero-buttons">
+                    <a href="#works" class="btn-primary">
+                        <i class="fas fa-rocket"></i> 制作物を見る
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <i class="fas fa-envelope"></i> お問い合わせ
+                    </a>
                 </div>
-                <div class="hero-visual">
-                    <div class="lab-visual">
-                        <div class="salmon-icon">🐟</div>
-                        <h3>Salmon Innovation Lab</h3>
-                        <p>アイデアを鮮やかに<br>泳がせる実験室</p>
+            </div>
+            <div class="hero-visual">
+                <div class="lab-visual">
+                    <div class="salmon-icon">
+                        🐟
+                    </div>
+                    <h3>Salmon Innovation Lab</h3>
+                    <p>アイデアを鮮やかに<br>泳がせる実験室</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">このサイトについて</h2>
+                <p class="section-subtitle">
+                    shakelabsは、Web開発とデジタルクリエイションの実験室です
+                </p>
+            </div>
+            <div class="about-content scroll-reveal">
+                <div class="about-visual">
+                    <i class="fas fa-fish"></i>
+                    <h3>Salmon Creative Lab</h3>
+                    <p>鮭のように上流を目指す、革新的なクリエイティブプロセス</p>
+                </div>
+                <div class="about-text">
+                    <h3>技術革新への取り組み</h3>
+                    <p>
+                        shakelabsでは、鮭（shake）のように困難を乗り越えて上流を目指す精神で、最新のWeb技術を駆使して、
+                        ユーザーエクスペリエンスを重視したWebアプリケーションの開発に取り組んでいます。
+                        単なる技術の追求ではなく、ビジネス価値を生み出すソリューションの創造を目指しています。
+                    </p>
+                    <p>
+                        私たちの強みは、フロントエンドからバックエンド、インフラまでを包括的にカバーできる技術力と、
+                        ユーザー中心設計の思考プロセスです。鮭が本能的に最適なルートを見つけるように、常に学習し続け、最適な技術選択を行います。
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>モダンなフロントエンド開発</li>
+                        <li><i class="fas fa-check"></i>スケーラブルなバックエンド設計</li>
+                        <li><i class="fas fa-check"></i>ユーザー中心のUX/UI設計</li>
+                        <li><i class="fas fa-check"></i>クラウドインフラの最適化</li>
+                        <li><i class="fas fa-check"></i>継続的な学習とイノベーション</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <h2 class="section-title">ポートフォリオ</h2>
+                <p class="section-subtitle">
+                    制作物、スキル、プロフィールをご覧いただけます
+                </p>
+            </div>
+            
+            <div class="portfolio-tabs scroll-reveal">
+                <button class="tab-btn active" data-tab="works">制作物</button>
+                <button class="tab-btn" data-tab="skills">スキル</button>
+                <button class="tab-btn" data-tab="profile">プロフィール</button>
+            </div>
+
+            <!-- 制作物タブ -->
+            <div id="works" class="tab-content active">
+                <div class="projects-grid">
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-date">2024年9月</span>
+                                <span class="project-status">完成</span>
+                            </div>
+                            <h3>shakelabs ポートフォリオサイト</h3>
+                            <p>サーモン色を基調とした洗練されたデザインのポートフォリオサイト。レスポンシブ対応とモダンなアニメーション効果を実装。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">GitHub Pages</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-date">2024年7月</span>
+                                <span class="project-status">完成</span>
+                            </div>
+                            <h3>ECプラットフォーム開発</h3>
+                            <p>React + Node.jsで構築したフルスタックECアプリケーション。決済システム統合、在庫管理、ユーザー認証機能を実装。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">Stripe API</span>
+                                <span class="tech-tag">JWT</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-date">2024年5月</span>
+                                <span class="project-status">進行中</span>
+                            </div>
+                            <h3>データ分析ダッシュボード</h3>
+                            <p>リアルタイムデータ可視化システム。D3.jsとChart.jsを使用してインタラクティブなグラフとレポート機能を提供。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">D3.js</span>
+                                <span class="tech-tag">Chart.js</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">FastAPI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card scroll-reveal">
+                        <div class="project-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-meta">
+                                <span class="project-date">2024年3月</span>
+                                <span class="project-status">完成</span>
+                            </div>
+                            <h3>PWAタスク管理アプリ</h3>
+                            <p>オフライン対応のプログレッシブWebアプリ。チーム協業機能、リアルタイム同期、プッシュ通知を実装。</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">PWA</span>
+                                <span class="tech-tag">Firebase</span>
+                                <span class="tech-tag">WebSocket</span>
+                                <span class="tech-tag">Service Worker</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fab fa-github"></i> Source Code
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="about" class="about">
-            <div class="container">
-                <div class="section-header scroll-reveal">
-                    <h2 class="section-title">このサイトについて</h2>
-                    <p class="section-subtitle">
-                        shakelabsは、Web開発とデジタルクリエイションの実験室です
-                    </p>
-                </div>
-                <div class="about-content scroll-reveal">
-                    <div class="about-visual">
-                        <i class="fas fa-fish"></i>
-                        <h3>Salmon Creative Lab</h3>
-                        <p>鮭のように上流を目指す、革新的なクリエイティブプロセス</p>
+            <!-- スキルタブ -->
+            <div id="skills" class="tab-content">
+                <div class="skills-grid">
+                    <div class="skill-category scroll-reveal">
+                        <h4><i class="fas fa-laptop-code"></i> Frontend Development</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Vue.js</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">SASS/SCSS</span>
+                        </div>
                     </div>
-                    <div class="about-text">
-                        <h3>技術革新への取り組み</h3>
+                    
+                    <div class="skill-category scroll-reveal">
+                        <h4><i class="fas fa-server"></i> Backend Development</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Redis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category scroll-reveal">
+                        <h4><i class="fas fa-cloud"></i> DevOps & Infrastructure</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Google Cloud</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Nginx</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Kubernetes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category scroll-reveal">
+                        <h4><i class="fas fa-tools"></i> Tools & Others</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Photoshop</span>
+                            <span class="skill-tag">Notion</span>
+                            <span class="skill-tag">Slack</span>
+                            <span class="skill-tag">Jira</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- プロフィールタブ -->
+            <div id="profile" class="tab-content">
+                <div class="profile-content">
+                    <div class="profile-card scroll-reveal">
+                        <div class="profile-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Miyake Keisuke</h3>
+                        <div class="role">Full Stack Developer</div>
+                        <p>東京を拠点に活動するWebデベロッパー。ユーザー中心設計を重視したデジタルソリューションの開発に情熱を注いでいます。</p>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">5+</div>
+                                <div class="stat-label">Years</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">100+</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-details scroll-reveal">
+                        <h3>技術への情熱と継続的な学習</h3>
                         <p>
-                            shakelabsでは、鮭（shake）のように困難を乗り越えて上流を目指す精神で、最新のWeb技術を駆使して、
-                            ユーザーエクスペリエンスを重視したWebアプリケーションの開発に取り組んでいます。
-                            単なる技術の追求ではなく、ビジネス価値を生み出すソリューションの創造を目指しています。
+                            私は、技術の力を通じて人々の生活をより良くすることを使命としています。
+                            フロントエンド開発では、React、Vue.jsを中心としたモダンなSPAの構築を得意とし、
+                            バックエンドではNode.js、Python（Django/FastAPI）を使用したAPIサーバーの開発経験があります。
                         </p>
                         <p>
-                            私たちの強みは、フロントエンドからバックエンド、インフラまでを包括的にカバーできる技術力と、
-                            ユーザー中心設計の思考プロセスです。鮭が本能的に最適なルートを見つけるように、常に学習し続け、最適な技術選択を行います。
+                            常に最新の技術トレンドをキャッチアップし、効率的で保守性の高いコードを書くことを心がけています。
+                            チーム開発においては、Git/GitHubを活用したバージョン管理やCI/CDパイプラインの構築にも携わっています。
+                        </p>
+                        <p>
+                            また、ユーザーエクスペリエンスの向上を重視し、デザインシステムの構築やアクセシビリティの改善にも取り組んでいます。
+                            技術だけでなく、ビジネス価値の創造を意識した開発を行うことで、クライアントの成功に貢献します。
                         </p>
                         <ul class="feature-list">
-                            <li><i class="fas fa-check"></i>モダンなフロントエンド開発</li>
-                            <li><i class="fas fa-check"></i>スケーラブルなバックエンド設計</li>
-                            <li><i class="fas fa-check"></i>ユーザー中心のUX/UI設計</li>
-                            <li><i class="fas fa-check"></i>クラウドインフラの最適化</li>
-                            <li><i class="fas fa-check"></i>継続的な学習とイノベーション</li>
+                            <li><i class="fas fa-graduation-cap"></i>継続的な学習とスキルアップ</li>
+                            <li><i class="fas fa-users"></i>チームワークとコミュニケーション</li>
+                            <li><i class="fas fa-lightbulb"></i>問題解決とイノベーション思考</li>
+                            <li><i class="fas fa-heart"></i>ユーザー中心設計への取り組み</li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="contact">
-            <div class="contact-container">
-                <h2>お問い合わせ</h2>
-                <p class="contact-description">
-                    プロジェクトのご相談やコラボレーションの機会について、お気軽にお声がけください。
-                    新しいアイデアを一緒に形にしていきましょう。
-                </p>
-                <form class="simple-contact-form" id="simpleContactForm">
-                    <div class="form-row-simple">
-                        <div class="simple-form-group">
-                            <input type="text" name="name" placeholder="お名前" required>
-                        </div>
-                        <div class="simple-form-group">
-                            <input type="email" name="email" placeholder="メールアドレス" required>
-                        </div>
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>お問い合わせ</h2>
+            <p class="contact-description">
+                プロジェクトのご相談やコラボレーションの機会について、お気軽にお声がけください。
+                新しいアイデアを一緒に形にしていきましょう。
+            </p>
+            <form class="simple-contact-form" id="simpleContactForm">
+                <div class="form-row-simple">
+                    <div class="simple-form-group">
+                        <input type="text" name="name" placeholder="お名前" required>
                     </div>
                     <div class="simple-form-group">
-                        <input type="text" name="subject" placeholder="件名" required>
+                        <input type="email" name="email" placeholder="メールアドレス" required>
                     </div>
-                    <div class="simple-form-group">
-                        <textarea name="message" placeholder="メッセージ" required></textarea>
-                    </div>
-                    <button type="submit" class="simple-submit-btn">送信する</button>
-                </form>
-            </div>
-        </section>
-    </main>
+                </div>
+                <div class="simple-form-group">
+                    <input type="text" name="subject" placeholder="件名" required>
+                </div>
+                <div class="simple-form-group">
+                    <textarea name="message" placeholder="メッセージ" required></textarea>
+                </div>
+                <button type="submit" class="simple-submit-btn">送信する</button>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-top-icon">
