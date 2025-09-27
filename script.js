@@ -1,114 +1,3 @@
-// スプラッシュスクリーン関連
-let splashShown = false;
-
-// サイトに入る機能
-function enterSite() {
-    const splash = document.getElementById('hero-splash');
-    const header = document.getElementById('main-header');
-    const mainContent = document.getElementById('main-content');
-    
-    // スプラッシュをフェードアウト
-    splash.classList.add('fade-out');
-    
-    // 1秒後にメインコンテンツを表示
-    setTimeout(() => {
-        splash.style.display = 'none';
-        header.style.display = 'block';
-        mainContent.style.display = 'block';
-        
-        // ページ内リンクを有効化
-        enablePageNavigation();
-        
-        // メインコンテンツにフェードイン効果
-        mainContent.style.opacity = '0';
-        header.style.opacity = '0';
-        
-        setTimeout(() => {
-            mainContent.style.transition = 'opacity 0.5s ease';
-            header.style.transition = 'opacity 0.5s ease';
-            mainContent.style.opacity = '1';
-            header.style.opacity = '1';
-        }, 100);
-        
-        splashShown = true;
-    }, 1000);
-}
-
-// スクロールでもサイトに入れるように
-let scrollThreshold = 100;
-let scrollAmount = 0;
-
-window.addEventListener('scroll', () => {
-    if (!splashShown) {
-        scrollAmount += Math.abs(window.scrollY);
-        if (scrollAmount > scrollThreshold) {
-            enterSite();
-        }
-    }
-});
-
-// スプラッシュ画面でのキーボード操作
-document.addEventListener('keydown', (e) => {
-    if (!splashShown && (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown')) {
-        e.preventDefault();
-        enterSite();
-    }
-});
-
-// ページ内ナビゲーションを有効化
-function enablePageNavigation() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-}
-
-// 鮭のクリックインタラクション
-document.addEventListener('DOMContentLoaded', () => {
-    const salmons = document.querySelectorAll('.salmon');
-    
-    salmons.forEach((salmon, index) => {
-        salmon.addEventListener('click', () => {
-            // クリックエフェクト
-            salmon.style.transform = 'scaleX(-1) scale(1.5) rotate(360deg)';
-            salmon.style.transition = 'transform 0.5s ease';
-            
-            setTimeout(() => {
-                salmon.style.transform = '';
-                salmon.style.transition = '';
-            }, 500);
-            
-            // 早めにサイトに入る
-            if (!splashShown) {
-                setTimeout(() => {
-                    enterSite();
-                }, 300);
-            }
-        });
-    });
-});
-
-// パフォーマンス最適化：アニメーションの無効化オプション
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const style = document.createElement('style');
-    style.textContent = `
-        *, *::before, *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -127,38 +16,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
-    if (splashShown) {
-        const header = document.querySelector('header');
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.backdropFilter = 'blur(20px)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.backdropFilter = 'blur(12px)';
-        }
-
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollY = currentScrollY;
+    const header = document.querySelector('header');
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.backdropFilter = 'blur(20px)';
+    } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(12px)';
     }
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        header.style.transform = 'translateY(-100%)';
+    } else {
+        header.style.transform = 'translateY(0)';
+    }
+    
+    lastScrollY = currentScrollY;
 });
 
 // Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
 
-if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+
+// Tab functionality
+const tabBtns = document.querySelectorAll('.tab-btn');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+        
+        // Remove active class from all tabs and contents
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked tab and corresponding content
+        btn.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
     });
-}
+});
 
 // Scroll reveal animation
 const observerOptions = {
@@ -216,6 +119,27 @@ document.getElementById('simpleContactForm').addEventListener('submit', function
     }, 2000);
 });
 
+// Interactive effects
+document.querySelectorAll('.skill-tag').forEach(tag => {
+    tag.addEventListener('mouseenter', () => {
+        tag.style.transform = 'scale(1.05)';
+    });
+    
+    tag.addEventListener('mouseleave', () => {
+        tag.style.transform = 'scale(1)';
+    });
+});
+
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-12px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
 // Footer scroll to top
 document.querySelector('.footer-top-icon').addEventListener('click', () => {
     window.scrollTo({
@@ -225,22 +149,20 @@ document.querySelector('.footer-top-icon').addEventListener('click', () => {
 });
 
 // Mobile menu toggle animation
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        const spans = menuToggle.querySelectorAll('span');
-        menuToggle.classList.toggle('active');
-        
-        if (menuToggle.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-    });
-}
+menuToggle.addEventListener('click', () => {
+    const spans = menuToggle.querySelectorAll('span');
+    menuToggle.classList.toggle('active');
+    
+    if (menuToggle.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+    } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
+});
 
 // Performance optimization: Debounce scroll events
 function debounce(func, wait) {
@@ -260,38 +182,75 @@ const debouncedScrollHandler = debounce(() => {
     // Scroll-based animations or effects can be added here
 }, 10);
 
-if (splashShown) {
-    window.addEventListener('scroll', debouncedScrollHandler);
-}
+window.addEventListener('scroll', debouncedScrollHandler);
+
+// Initialize any additional features when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add any initialization code here
+    console.log('shakelabs website loaded successfully!');
+});
 
 // Handle window resize for responsive adjustments
 window.addEventListener('resize', function() {
     // Close mobile menu on resize to larger screen
-    if (window.innerWidth > 968 && navLinks) {
+    if (window.innerWidth > 968) {
         navLinks.classList.remove('active');
-        if (menuToggle) {
-            menuToggle.classList.remove('active');
-            
-            const spans = menuToggle.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
+        menuToggle.classList.remove('active');
+        
+        const spans = menuToggle.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
     }
 });
+
+// Add smooth transitions for dynamic content changes
+function addSmoothTransition(element) {
+    element.style.transition = 'all 0.3s ease';
+}
 
 // Accessibility improvements
 document.addEventListener('keydown', function(e) {
     // Close mobile menu with Escape key
-    if (e.key === 'Escape' && navLinks && navLinks.classList.contains('active')) {
+    if (e.key === 'Escape' && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
-        if (menuToggle) {
-            menuToggle.classList.remove('active');
-        }
+        menuToggle.classList.remove('active');
     }
 });
 
-// Initialize any additional features when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('shakelabs website loaded successfully!');
+// Focus management for accessibility
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            btn.click();
+        }
+    });
 });
+
+// Enhanced form validation
+function validateForm(formElement) {
+    const inputs = formElement.querySelectorAll('input, textarea');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (input.hasAttribute('required') && !input.value.trim()) {
+            input.style.borderColor = '#ff6b47';
+            isValid = false;
+        } else {
+            input.style.borderColor = '';
+        }
+    });
+    
+    return isValid;
+}
+
+// Progressive enhancement for older browsers
+if ('IntersectionObserver' in window) {
+    // Use IntersectionObserver for scroll animations
+} else {
+    // Fallback for older browsers
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+        el.classList.add('revealed');
+    });
+}
