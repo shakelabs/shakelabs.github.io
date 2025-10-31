@@ -12,13 +12,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Parallax scroll effect for background text
+function updateParallax() {
+    const backgroundText = document.querySelector('.background-text');
+    const scrolled = window.pageYOffset;
+    backgroundText.style.transform = `translateX(${scrolled * 0.1}px)`;
+}
+
 // Header background and mobile menu
 let lastScrollY = window.scrollY;
 
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     const currentScrollY = window.scrollY;
-    
+
     if (currentScrollY > 100) {
         header.style.background = 'rgba(255, 255, 255, 0.98)';
         header.style.backdropFilter = 'blur(20px)';
@@ -32,8 +39,9 @@ window.addEventListener('scroll', () => {
     } else {
         header.style.transform = 'translateY(0)';
     }
-    
+
     lastScrollY = currentScrollY;
+    updateParallax();
 });
 
 // Mobile menu toggle
@@ -43,25 +51,20 @@ const navLinks = document.querySelector('.nav-links');
 menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     menuToggle.classList.toggle('active');
+    
+    const spans = menuToggle.querySelectorAll('span');
+    if (menuToggle.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+    } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+    }
 });
 
-// Tab functionality
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
-
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const targetTab = btn.getAttribute('data-tab');
-        
-        // Remove active class from all tabs and contents
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-        
-        // Add active class to clicked tab and corresponding content
-        btn.classList.add('active');
-        document.getElementById(targetTab).classList.add('active');
-    });
-});
+// Tab functionality removed - now using separate sections
 
 // Scroll reveal animation
 const observerOptions = {
@@ -72,9 +75,13 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
+            // 画面内に入ったらrevealedクラスを追加
             setTimeout(() => {
                 entry.target.classList.add('revealed');
             }, index * 100);
+        } else {
+            // 画面外に出たらrevealedクラスを削除して再度アニメーション可能にする
+            entry.target.classList.remove('revealed');
         }
     });
 }, observerOptions);
@@ -110,7 +117,6 @@ document.getElementById('simpleContactForm').addEventListener('submit', function
     submitBtn.textContent = '送信中...';
     submitBtn.disabled = true;
     
-    // Simulate email sending
     setTimeout(() => {
         alert('お問い合わせありがとうございます！確認次第ご返信いたします。');
         this.reset();
@@ -148,22 +154,6 @@ document.querySelector('.footer-top-icon').addEventListener('click', () => {
     });
 });
 
-// Mobile menu toggle animation
-menuToggle.addEventListener('click', () => {
-    const spans = menuToggle.querySelectorAll('span');
-    menuToggle.classList.toggle('active');
-    
-    if (menuToggle.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
-    } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-    }
-});
-
 // Performance optimization: Debounce scroll events
 function debounce(func, wait) {
     let timeout;
@@ -177,22 +167,15 @@ function debounce(func, wait) {
     };
 }
 
-// Apply debounce to scroll events for better performance
-const debouncedScrollHandler = debounce(() => {
-    // Scroll-based animations or effects can be added here
-}, 10);
+window.addEventListener('scroll', debounce(updateParallax, 10));
 
-window.addEventListener('scroll', debouncedScrollHandler);
-
-// Initialize any additional features when DOM is loaded
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    // Add any initialization code here
     console.log('shakelabs website loaded successfully!');
 });
 
-// Handle window resize for responsive adjustments
+// Handle window resize
 window.addEventListener('resize', function() {
-    // Close mobile menu on resize to larger screen
     if (window.innerWidth > 968) {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
@@ -204,21 +187,14 @@ window.addEventListener('resize', function() {
     }
 });
 
-// Add smooth transitions for dynamic content changes
-function addSmoothTransition(element) {
-    element.style.transition = 'all 0.3s ease';
-}
-
 // Accessibility improvements
 document.addEventListener('keydown', function(e) {
-    // Close mobile menu with Escape key
     if (e.key === 'Escape' && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         menuToggle.classList.remove('active');
     }
 });
 
-// Focus management for accessibility
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -228,29 +204,94 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     });
 });
 
-// Enhanced form validation
-function validateForm(formElement) {
-    const inputs = formElement.querySelectorAll('input, textarea');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            input.style.borderColor = '#ff6b47';
-            isValid = false;
-        } else {
-            input.style.borderColor = '';
-        }
-    });
-    
-    return isValid;
-}
-
-// Progressive enhancement for older browsers
-if ('IntersectionObserver' in window) {
-    // Use IntersectionObserver for scroll animations
-} else {
-    // Fallback for older browsers
+// Progressive enhancement
+if (!('IntersectionObserver' in window)) {
     document.querySelectorAll('.scroll-reveal').forEach(el => {
         el.classList.add('revealed');
     });
 }
+
+// Skills Radar Charts
+function createRadarChart(canvasId, labels, data, color) {
+    const ctx = document.getElementById(canvasId);
+    if (!ctx) return;
+
+    new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Skill Level',
+                data: data,
+                backgroundColor: `rgba(${color}, 0.2)`,
+                borderColor: `rgba(${color}, 0.8)`,
+                borderWidth: 2,
+                pointBackgroundColor: `rgba(${color}, 1)`,
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: `rgba(${color}, 1)`,
+                pointRadius: 4,
+                pointHoverRadius: 6
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    min: 0,
+                    max: 5,
+                    ticks: {
+                        stepSize: 1,
+                        font: {
+                            size: 12
+                        },
+                        color: '#666'
+                    },
+                    grid: {
+                        color: 'rgba(250, 128, 114, 0.1)'
+                    },
+                    angleLines: {
+                        color: 'rgba(250, 128, 114, 0.2)'
+                    },
+                    pointLabels: {
+                        font: {
+                            size: 13,
+                            weight: '500'
+                        },
+                        color: '#333'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: true
+        }
+    });
+}
+
+// Initialize charts when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Front-end skills (pink/salmon)
+    createRadarChart('frontendChart',
+        ['HTML/CSS', 'JavaScript', 'jQuery', 'Vue.js/Vue CLI', 'CSS FW', 'WordPress'],
+        [5, 4, 4, 3, 3, 2],
+        '255, 182, 193'
+    );
+
+    // Back-end skills (green)
+    createRadarChart('backendChart',
+        ['Python', 'Django', 'Go', 'PostgreSQL', 'MySQL', 'Nginx'],
+        [5, 4, 3, 3, 2, 2],
+        '144, 238, 144'
+    );
+
+    // DevOps skills (yellow/orange)
+    createRadarChart('devopsChart',
+        ['Linux', 'Git/ GitHub', 'Docker', 'Docker Compose', 'Vim', 'AWS'],
+        [5, 4, 4, 3, 2, 2],
+        '255, 215, 0'
+    );
+});
